@@ -1,0 +1,26 @@
+const int Sw_pinn = 2; // digital pin 2
+const int X_pinn = A9; //analog pin A9 due to A1 pin being blown out on arduino mega 2560 lol xD
+const int Y_pinn = A10; //analog pin A10
+
+int Sw_pin = Sw_pinn;
+int X_pin = X_pinn;
+int Y_pin = Y_pinn;
+
+void setup() {
+  pinMode(Sw_pin, INPUT);
+  digitalWrite(Sw_pin, HIGH);
+  Serial.begin(9600);
+}
+
+void loop() {
+  Serial.print("Switch:  ");
+  Serial.print(digitalRead(Sw_pin));
+  Serial.print("\n");
+  Serial.print("X-Axis: ");
+  Serial.print(analogRead(X_pin));
+  Serial.print("\n");
+  Serial.print("Y-Axis: ");
+  Serial.println(analogRead(Y_pin));
+  Serial.print("\n\n");
+  delay(500);
+}
